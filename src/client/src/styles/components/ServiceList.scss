@@ -1,0 +1,17 @@
+.container__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  justify-content: space-between;
+  grid-gap: 2rem;
+  margin: 2rem;
+
+  @include respond-medium {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services--empty {
+  background-color: $color-default-background;
+  text-align: center;
+  padding: 2rem;
+}

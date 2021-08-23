@@ -1,0 +1,27 @@
+/***
+* APP
+***/
+
+$responsive-breakpoint: '900px';
+
+/***
+* COLORS
+***/
+
+/* Default colors */
+$color-default: #01454b; /* Default text color */
+$color-default-ondark: #ffffff; /* Default text color on dark backgrounds */
+$color-default-ondarker: #f7f8f9;
+$color-default-background: #ffffff; /* Default background color */
+$color-default-gray-light: #cccccc;
+$color-default-gray-dark: #555555;
+
+/* Brand colors */
+$color-brand-1st: #002845;
+$color-brand-1st-lighter: #3f6073;
+$color-brand-2nd-light: #6bccba;
+$color-brand-2nd-dark: #0a7e85;
+$color-brand-2nd-darker: #01454b;
+
+/* Secondary / action colors */
+$color-error: #ff0000;

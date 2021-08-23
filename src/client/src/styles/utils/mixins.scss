@@ -1,0 +1,5 @@
+@mixin respond-medium {
+  @media (max-width: $responsive-breakpoint) {
+    @content;
+  }
+}

@@ -1,0 +1,33 @@
+.form__wrapper {
+  margin-top: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background: $color-default-background;
+  margin: 0 2rem;
+  padding: 2em;
+}
+
+.form__title {
+  align-self: center;
+  padding-bottom: 1rem;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form__button-wrapper {
+  margin-top: 2.5rem;
+  align-self: center;
+}
+
+.form__error {
+  color: $color-error;
+  font-size: 0.85rem;
+  padding-top: 0.3rem;
+}

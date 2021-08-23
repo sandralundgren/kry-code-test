@@ -1,0 +1,27 @@
+.input__label {
+  align-self: flex-start;
+  color: $color-brand-1st-lighter;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  padding-bottom: 0.2rem;
+}
+
+.input__field {
+  border: none;
+  border-bottom: 2px solid $color-default-gray-light;
+  color: $color-default-gray-dark;
+  padding: 0.5em 0.5em 0.5em 0;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid $color-brand-2nd-light;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,19 @@
+.btn-primary {
+  color: $color-default-ondark;
+  background-color: $color-brand-2nd-dark;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0.8rem 5rem;
+  line-height: 0.8rem;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  transition: all 0.15s ease-in-out;
+  transition-property: transform, color;
+  margin-top: auto;
+
+  &:hover {
+    color: $color-default-ondarker;
+    background-color: $color-brand-2nd-darker;
+    cursor: pointer;
+  }
+}
