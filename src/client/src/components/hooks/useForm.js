@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { FORM_INITIAL_STATE } from '../constants/constants';
+import { FORM_INITIAL_STATE } from '../../constants/constants';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState(FORM_INITIAL_STATE);

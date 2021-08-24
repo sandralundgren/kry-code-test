@@ -6,8 +6,10 @@ export const getAllServices = async () => {
       return serviceData.map((service) => JSON.parse(service.status));
     })
     .then((data) => {
+      // sort so that the latest added service is first
       return data.sort(
-        (a, b) => b.addTime?.epochSecond - a.addTime?.epochSecond
+        (serviceA, serviceB) =>
+          serviceB.addTime?.epochSecond - serviceA.addTime?.epochSecond
       );
     });
   return response;

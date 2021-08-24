@@ -26,7 +26,7 @@ const ServiceList = ({ services, loading, handleDelete }) => {
       );
     })
   ) : (
-    <div className="rounded-borders full-width-padding services--empty">
+    <div className="rounded-borders full-width-padding message-box">
       There are currently no services to show yet.
     </div>
   );

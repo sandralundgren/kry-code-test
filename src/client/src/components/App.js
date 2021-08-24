@@ -9,21 +9,26 @@ import {
   deleteService,
 } from '../services/urlService';
 import { useInterval } from './hooks/useInterval';
-import { SERVICE_REFRESH_INTERVAL } from './constants/constants';
+import { SERVICE_REFRESH_INTERVAL } from '../constants/constants';
 import '../styles/main.scss';
 
 const App = () => {
   const [services, setServices] = useState([]);
   const [servicesLoading, setServicesLoading] = useState(true);
 
-  const [createLoading, setCreateLoading] = useState(false);
-  const [remove, setRemove] = useState({ name: null });
+  const [isCreating, setIsCreating] = useState(false);
+  const [removeService, setRemoveService] = useState({ name: null });
+
+  const [error, setError] = useState('');
 
   const getSetServices = async () => {
+    setError('');
+
     try {
       await getAllServices().then((res) => setServices(res));
     } catch (err) {
       console.log(err);
+      setError('Could not fetch services');
     } finally {
       setServicesLoading(false);
     }
@@ -38,37 +43,45 @@ const App = () => {
   }, SERVICE_REFRESH_INTERVAL);
 
   const handleSubmit = async (name, url) => {
-    setCreateLoading(true);
+    setIsCreating(true);
 
     try {
       await createService({ name, url });
       await getSetServices();
     } catch (err) {
       console.log(err);
+      setError('Could not add service');
     }
 
-    setCreateLoading(false);
+    setIsCreating(false);
   };
 
   const handleDelete = async (name) => {
-    setRemove({ name });
+    setRemoveService({ name });
 
     try {
       await deleteService({ name });
       await getSetServices();
     } catch (err) {
       console.log(err);
+      setError('Could not remove service');
     }
 
-    setRemove({ name: null });
+    setRemoveService({ name: null });
   };
 
   return (
     <div className="App">
       <main role="main">
         <section className="form__section">
-          <Form onSubmit={handleSubmit} loading={createLoading} />
+          <Form onSubmit={handleSubmit} loading={isCreating} />
         </section>
+
+        {error ? (
+          <section className="rounded-borders full-width-padding margin message-box">
+            {error}
+          </section>
+        ) : null}
 
         <section className="container__wrapper">
           {servicesLoading ? (
@@ -76,7 +89,7 @@ const App = () => {
           ) : (
             <ServiceList
               services={services}
-              loading={remove}
+              loading={removeService}
               handleDelete={handleDelete}
             />
           )}

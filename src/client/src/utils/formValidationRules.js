@@ -1,4 +1,4 @@
-import { FORM_INITIAL_STATE } from '../components/constants/constants';
+import { FORM_INITIAL_STATE } from '../constants/constants';
 
 const validate = (values) => {
   let errors = {};
